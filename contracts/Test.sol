@@ -13,7 +13,7 @@ import "hardhat/console.sol";
 contract Test {
     constructor (bytes memory sig){
     address recovered = ECDSA.recover(ECDSA.toEthSignedMessageHash(keccak256("hello")), sig);
-    console.log(recovered);
+    console.log("OUTPUT FROM CONTRACT", recovered);
 
     }
 

@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "C:\\Users\\leruo\\Desktop\\WTC 2026\\BLOCKCHAIN TECHNOLOGY\\Workshops with Karabo\\Smart_Account\\contracts\\Account.sol": {
-      "lastModificationDate": 1774855211722,
-      "contentHash": "2ea85dc07806155e703b53e51ebd0cff",
+      "lastModificationDate": 1774876203386,
+      "contentHash": "515707bda99f7c250434fa4a4fd5b16f",
       "sourceName": "contracts/Account.sol",
       "solcConfig": {
         "version": "0.8.19",
@@ -32,7 +32,8 @@
         "@account-abstraction/contracts/core/EntryPoint.sol",
         "@account-abstraction/contracts/interfaces/IAccount.sol",
         "@openzeppelin/contracts/utils/cryptography/ECDSA.sol",
-        "@openzeppelin/contracts/utils/Create2.sol"
+        "@openzeppelin/contracts/utils/Create2.sol",
+        "hardhat/console.sol"
       ],
       "versionPragmas": [
         "^0.8.9"
@@ -738,8 +739,8 @@
       ]
     },
     "C:\\Users\\leruo\\Desktop\\WTC 2026\\BLOCKCHAIN TECHNOLOGY\\Workshops with Karabo\\Smart_Account\\contracts\\Test.sol": {
-      "lastModificationDate": 1774855211725,
-      "contentHash": "b8a570c7619bbfdf665f31bdd8cc6e24",
+      "lastModificationDate": 1774871587287,
+      "contentHash": "bccaf257073d7c12bfde810048a697e3",
       "sourceName": "contracts/Test.sol",
       "solcConfig": {
         "version": "0.8.19",

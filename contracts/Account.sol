@@ -5,10 +5,12 @@ import "@account-abstraction/contracts/core/EntryPoint.sol";
 import "@account-abstraction/contracts/interfaces/IAccount.sol";
 import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 import "@openzeppelin/contracts/utils/Create2.sol";
+import "hardhat/console.sol";
 
 contract Account is IAccount {
     uint256 public count;
     address public owner;
+    string public message;
 
     constructor(address _owner) {
         owner = _owner;
@@ -38,8 +40,10 @@ contract Account is IAccount {
     }
 
 
-    function execute() external {
-        count++;
+    function execute(uint256 _num) external {
+        message = "I have EXECUTED!";
+        console.log(_num);
+
     }
 }
 

@@ -17,24 +17,19 @@ async function main() {
     console.log("Address deployed to ", AccFactoryAddress);
 
 
-    // Send signer details to Acc Factory
+
+    // Sender returns the FULL TRANSACTION - then we access the call data and 
     const sender = await accFactory.createAccount(leruo_address);
     await sender.wait();
 
-    console.log("InitCode created as: ", sender.data);
+
+    console.log("calldata of transaction created as: ", sender.data);
 
     const newInitCode = AccFactoryAddress + sender.data.slice(2);
 
-    console.log("New InitCode created as: ", newInitCode);
+    console.log("Final InitCode created as: ", newInitCode);
 
-    const initCodeHash = ethers.keccak256(newInitCode);
-
-
-
-
-
-
-
+    // const initCodeHash = ethers.keccak256(newInitCode);
 
 
     // // LETS USE CREATE 2 TO GET THE SCA ADDRESS
@@ -42,21 +37,14 @@ async function main() {
     // const predictedAddress = ethers.getCreate2Address(
     //     AccFactoryAddress,
     //     salt,
-    //     newInitCode
+    //     initCodeHash
     // );
 
     // console.log("Predicted Smart Account Address:", predictedAddress);
 
 
 
-
-
-
     // DEPLOY ENTRY POINT AND USE IT TO GET SENDER
-
-
-
-
 
     let EntryPointAddress;
 
@@ -68,31 +56,16 @@ async function main() {
 
     console.log("EntryPoint deployed at: ", EntryPointAddress);
 
-
-
-
-
-
-
-
-
-
-
-
     try {
         await entrypoint.getSenderAddress(newInitCode);
     } catch(senderFinal){
-        console.log(senderFinal.data);
         SCA_Address = "0x" + senderFinal.data.data.slice(-40);
         console.log("The sender address is saved as: ", SCA_Address);
     }
 
-
-
-
-
-
-    
+    // THIS RUNS THE METHOD AND RETURNS WHAT THE METHOD RETURNS. NOT THE FULL TRANSACTION
+    const ACTUAL_SENDER = await accFactory.createAccount.staticCall(leruo_address);
+    console.log(ACTUAL_SENDER);
 
 }
 
