@@ -11,6 +11,8 @@ contract Account is IAccount {
     uint256 public count;
     address public owner;
     string public message;
+    uint256 public totalAddNum;
+    uint256 public totalMultNum;
 
     constructor(address _owner) {
         owner = _owner;
@@ -44,6 +46,14 @@ contract Account is IAccount {
         message = "I have EXECUTED!";
         console.log(_num);
 
+    }
+
+    function addNums(uint256 _number1, uint256 _number2 ) public {
+        totalAddNum = _number1 + _number2;
+    }
+
+    function MultNum(uint256 _number11, uint256 _number22) public {
+        totalMultNum = _number11 * _number22;
     }
 }
 

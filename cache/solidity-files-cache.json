@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "C:\\Users\\leruo\\Desktop\\WTC 2026\\BLOCKCHAIN TECHNOLOGY\\Workshops with Karabo\\Smart_Account\\contracts\\Account.sol": {
-      "lastModificationDate": 1774876203386,
-      "contentHash": "515707bda99f7c250434fa4a4fd5b16f",
+      "lastModificationDate": 1775031253246,
+      "contentHash": "32565ba15b0ef3e905417000c43e990a",
       "sourceName": "contracts/Account.sol",
       "solcConfig": {
         "version": "0.8.19",
