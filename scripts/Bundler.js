@@ -71,17 +71,31 @@ async function main() {
 
     let userOp = {
         sender: senderAddress,
-        nonce: await entrypoint.getNonce(senderAddress, 0),
+
+        // For interacting with the API, the needs to be in a Hex or i will get errors
+        nonce: "0x" + (await entrypoint.getNonce(senderAddress, 0)).toString(16),
         initCode: InitCode,
         callData: batchCallData,
-        callGasLimit: 200000,    // from Bundler estimation
-        verificationGasLimit: 150000,
-        preVerificationGas: 50000,
-        maxFeePerGas: 20000000000,
-        maxPriorityFeePerGas: 20000000000,
+
         paymasterAndData: "0x",
+
+        // Pass in dummy signature from alchemy docs so the UserOp doesnt give errors.
         signature: "0x"
     };
+
+    // Getting the gas Numbers for the sections
+        // These 3 limits come from on the same method "eth_estimateUserOperationGas"
+            // callGasLimit: 200000,    // from Bundler estimation
+            // verificationGasLimit: 150000,
+            // preVerificationGas: 50000,
+        // 
+    // maxFeePerGas: 20000000000,
+    // maxPriorityFeePerGas: 20000000000,
+
+    console.log("Getting gas estimations...");
+
+    // This below will get the gas Estimates for you. It takes the EntryPoint address and the UserOp as args
+    ethers.provider.send("eth_estimateUserOperationGas")
 
 
     // Signature
